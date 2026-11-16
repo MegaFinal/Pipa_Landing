@@ -42,8 +42,8 @@ export default function Harvii() {
         <img
           src={harvii}
           alt="Tela do Harvii com as tarefas do dia de Jones, Isabela, Carol, Anshu e Dayô"
-          width="535"
-          height="385"
+          width="1100"
+          height="791"
           loading="lazy"
         />
       </div>
