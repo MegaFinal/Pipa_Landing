@@ -1,0 +1,294 @@
+.kite-race {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+}
+
+.kite-race.is-racing {
+  height: 760vh;
+}
+
+.kite-race__viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.kite-race__logo {
+  position: absolute;
+  top: clamp(20px, 4vw, 52px);
+  left: clamp(20px, 4vw, 52px);
+  z-index: 10;
+}
+
+.kite-race__selector {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.kite-race__selector.is-leaving .kite-selector {
+  animation: selector-out 0.45s ease-in forwards;
+}
+
+/* ---------- Pipas e linhas ---------- */
+
+.race-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.kite-race__kites {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  animation: kites-in 0.7s ease-out both;
+}
+
+@keyframes kites-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+.race-kite {
+  position: absolute;
+  will-change: transform, left, top;
+}
+
+.race-kite__image {
+  width: 100%;
+  height: auto;
+  animation: kite-bob 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 6px 6px rgba(40, 30, 70, 0.12));
+}
+
+.race-kite--bis14 .race-kite__image {
+  animation-duration: 3.1s;
+}
+
+.race-kite--tradicional .race-kite__image {
+  animation-duration: 1.9s;
+}
+
+@keyframes kite-bob {
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+}
+
+/* balão "Você" */
+.race-kite__tag {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 18px);
+  transform: translateX(-50%);
+  min-width: max-content;
+  padding: 0.28em 1.1em;
+  border-radius: var(--radius-pill);
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.35vw, 1.25rem);
+}
+
+.race-kite--tradicional .race-kite__tag {
+  bottom: calc(100% + 10px);
+}
+
+.race-kite__tag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: var(--orange);
+}
+
+/* balão "cortou!" */
+.kite-race__bubble {
+  position: absolute;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  padding: 0.3em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--yellow);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.2vw, 2.1rem);
+  box-shadow: 0 8px 18px rgba(50, 46, 46, 0.15);
+  animation: bubble-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+  pointer-events: none;
+}
+
+@keyframes bubble-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4) rotate(-8deg);
+  }
+}
+
+/* ---------- Dicas e atalhos ---------- */
+
+.kite-race__hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(32px, 9vh, 90px);
+  transform: translateX(-50%);
+  z-index: 6;
+  padding: 0.55em 1.5em;
+  border-radius: var(--radius-pill);
+  background: rgba(98, 81, 130, 0.85);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.8vw, 1.7rem);
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: hint-nudge 1.8s ease-in-out infinite;
+}
+
+.kite-race__hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes hint-nudge {
+  50% {
+    transform: translate(-50%, 6px);
+  }
+}
+
+.kite-race__skip {
+  position: absolute;
+  top: clamp(24px, 4.4vw, 60px);
+  right: clamp(20px, 4vw, 52px);
+  z-index: 10;
+  border: 0;
+  padding: 0.5em 1.2em;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  font-weight: 600;
+  color: var(--white);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.2s ease;
+}
+
+.kite-race__skip:hover,
+.kite-race__skip:focus-visible {
+  background: rgba(255, 255, 255, 0.32);
+  outline: none;
+}
+
+.kite-race.is-racing .kite-race__skip {
+  mix-blend-mode: normal;
+}
+
+/* ---------- Resultado ---------- */
+
+.race-result {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.race-result.is-visible {
+  opacity: 1;
+}
+
+.race-result.is-visible .race-result__actions {
+  pointer-events: auto;
+}
+
+.race-result__heading {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  text-align: center;
+}
+
+.race-result__title {
+  color: var(--orange);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7.6vw, 7.5rem);
+  letter-spacing: -0.01em;
+}
+
+.race-result.is-visible .race-result__title {
+  animation: title-pop 0.6s cubic-bezier(0.3, 1.5, 0.5, 1) both;
+}
+
+@keyframes title-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.race-result__subtitle {
+  margin-top: 0.5em;
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-weight: 500;
+}
+
+.race-result__actions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 7.5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(12px, 3vw, 40px);
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.confetti__piece {
+  position: absolute;
+  top: -6%;
+  width: clamp(6px, 0.7vw, 11px);
+  height: clamp(22px, 2.4vw, 38px);
+  border-radius: 99px;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(0) rotate(var(--rotate));
+  }
+  to {
+    transform: translateY(115vh) rotate(calc(var(--rotate) * -1));
+  }
+}
+
+@media (max-width: 640px) {
+  .race-result__heading {
+    top: 18%;
+  }
+}
