@@ -1,6 +1,6 @@
 .harvii {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   align-items: center;
   gap: clamp(32px, 5vw, 72px);
   padding: clamp(80px, 9vw, 120px) var(--page-padding);
@@ -11,9 +11,9 @@
 
 .harvii__title {
   font-weight: 700;
-  font-size: clamp(2.2rem, 4.4vw, 4.4rem);
+  font-size: clamp(2.1rem, 4.2vw, 4.2rem);
   line-height: 1.08;
-  max-width: 14ch;
+  max-width: 22ch;
 }
 
 .harvii__name {
@@ -69,7 +69,7 @@
 
 .harvii__price span {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(0.95rem, 1.25vw, 1.15rem);
 }
 
