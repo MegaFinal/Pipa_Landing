@@ -7,8 +7,8 @@ export default function RaceResult({ visible, playerWon, winnerName, onRestart, 
       {visible && playerWon && <Confetti />}
 
       <div className="race-result__heading">
-        <h2 className="race-result__title">{playerWon ? 'Você ganhou!' : `A ${winnerName} ganhou!`}</h2>
-        {!playerWon && <p className="race-result__subtitle">Sua pipa foi cortada no caminho. Bora tentar de novo?</p>}
+        <h2 className="race-result__title">{playerWon ? 'Você ganhou!' : 'Você perdeu!'}</h2>
+        {!playerWon && <p className="race-result__subtitle">A {winnerName} levou essa. Bora tentar de novo?</p>}
       </div>
 
       <div className="race-result__actions">
