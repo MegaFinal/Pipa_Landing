@@ -21,9 +21,9 @@ export default function Cloud({ tone = 'day', className = '', style }) {
         d="M30 92 C26 70 52 54 84 62 C98 30 150 22 192 42 C214 20 256 24 270 50"
         fill="none"
         stroke={c.light}
-        strokeWidth="10"
+        strokeWidth="5"
         strokeLinecap="round"
-        opacity="0.9"
+        opacity="0.7"
       />
     </svg>
   )
