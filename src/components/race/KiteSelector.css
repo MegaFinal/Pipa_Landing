@@ -1,0 +1,135 @@
+.kite-selector {
+  position: absolute;
+  left: 50%;
+  top: clamp(110px, 14.5vh, 180px);
+  transform: translateX(-50%);
+  width: min(82vw, 1100px);
+  padding: clamp(20px, 3vw, 40px) clamp(16px, 3vw, 40px) clamp(16px, 2vw, 28px);
+  border-radius: var(--radius-card);
+  background: rgba(244, 242, 248, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(40, 24, 70, 0.25);
+  animation: selector-in 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  z-index: 5;
+}
+
+.kite-selector.is-leaving {
+  animation: selector-out 0.45s ease-in forwards;
+}
+
+@keyframes selector-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 24px) scale(0.96);
+  }
+}
+
+@keyframes selector-out {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -24px) scale(0.96);
+  }
+}
+
+.kite-selector__title {
+  color: #5d4b80;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+}
+
+.kite-selector__list {
+  list-style: none;
+  margin: clamp(16px, 2.4vw, 32px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.9fr 0.9fr 1fr;
+  gap: clamp(8px, 1.5vw, 24px);
+  align-items: end;
+}
+
+.kite-selector__option {
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 10px 6px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 22px);
+  color: #5d4b80;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.kite-selector__option:hover,
+.kite-selector__option:focus-visible {
+  background: rgba(98, 81, 130, 0.08);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+.kite-selector__option:hover img,
+.kite-selector__option:focus-visible img {
+  animation: kite-wiggle 0.9s ease-in-out infinite;
+}
+
+@keyframes kite-wiggle {
+  25% {
+    transform: rotate(-4deg) translateY(-3px);
+  }
+  75% {
+    transform: rotate(4deg) translateY(-1px);
+  }
+}
+
+.kite-selector__image {
+  height: clamp(70px, 11vw, 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kite-selector__image img {
+  max-height: 100%;
+  width: auto;
+}
+
+.kite-selector__item--delta .kite-selector__image img,
+.kite-selector__item--andorinha .kite-selector__image img {
+  max-height: 80%;
+}
+
+.kite-selector__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+}
+
+.kite-selector__skip {
+  margin-top: clamp(8px, 1.4vw, 20px);
+  border: 0;
+  background: none;
+  color: #5d4b80;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+}
+
+.kite-selector__skip:hover,
+.kite-selector__skip:focus-visible {
+  background: rgba(98, 81, 130, 0.1);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .kite-selector__list {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+  }
+
+  .kite-selector__image {
+    height: 90px;
+  }
+}
