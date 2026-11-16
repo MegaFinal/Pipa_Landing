@@ -1,3 +1,11 @@
+/* Alan Sans: a mesma fonte do app (SIL Open Font License 1.1) */
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('../assets/fonts/AlanSans-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
 :root {
   /* Paleta do Pipa */
   --orange: #e75e3d;
@@ -17,7 +25,7 @@
   --night-low: #8a7aa3;
   --sky: #edf4fb;
 
-  --font-display: 'Fredoka', 'Figtree', system-ui, sans-serif;
+  --font-display: 'Alan Sans', 'Figtree', system-ui, sans-serif;
   --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --radius-pill: 999px;
