@@ -1,0 +1,214 @@
+.shop {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  justify-self: center;
+  /* proporções do protótipo: a pilha ocupa ~57% da largura */
+  padding: 9% 21% 6%;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', var(--font-body);
+  border-radius: 36px;
+  background: var(--magenta);
+  box-shadow: 0 14px 28px rgba(50, 46, 46, 0.16);
+}
+
+.shop__sticker {
+  position: absolute;
+  top: 13%;
+  right: 6%;
+  z-index: 20;
+  padding: 0.5em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--blue);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+  white-space: nowrap;
+  box-shadow: 0 6px 14px rgba(50, 46, 46, 0.2);
+  cursor: default;
+}
+
+.shop__stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--card-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* cartão fechado fica meio escondido debaixo do próximo, como pastas */
+.shop-card.overlaps-next {
+  margin-bottom: -24px;
+}
+
+.shop-card.is-open + .shop-card {
+  margin-top: 16px;
+}
+
+.shop-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 72px;
+  padding: 0 18px 0 16px;
+  border: 0;
+  background: var(--card-color);
+  color: var(--white);
+  text-align: left;
+}
+
+.shop-card.overlaps-next .shop-card__header {
+  padding-bottom: 24px;
+  height: 72px;
+}
+
+.shop-card__header:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: -5px;
+  border-radius: 22px;
+}
+
+.shop-card__icon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.shop-card__title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  letter-spacing: -0.01em;
+}
+
+.shop-card__count {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+.shop-card__chevron {
+  width: 14px;
+  height: 10px;
+  margin-left: 2px;
+  transition: transform 0.4s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.shop-card.is-open .shop-card__chevron {
+  transform: rotate(180deg);
+}
+
+.shop-card__items {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px;
+  background: #f2f1f6;
+  overflow: hidden;
+}
+
+.shop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1.5px dotted rgba(140, 140, 150, 0.4);
+}
+
+.shop-item:first-child {
+  margin-top: 6px;
+}
+
+.shop-item:last-child {
+  border-bottom: 0;
+  margin-bottom: 14px;
+}
+
+.shop-item__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.shop-item__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shop-item__name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 55% / 0 2px;
+  transition: background-size 0.35s ease, color 0.3s ease;
+  width: fit-content;
+}
+
+.shop-item__amount {
+  font-size: 0.95rem;
+  color: #1c1c1e;
+}
+
+.shop-item.is-done .shop-item__name {
+  background-size: 100% 2px;
+  color: #8a8a90;
+}
+
+.shop-item.is-done .shop-item__amount {
+  color: #9a9aa0;
+}
+
+.shop-item__check {
+  width: 24px;
+  height: 24px;
+  align-self: flex-start;
+  padding: 0;
+  border: 2px solid #1c1c1e;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.shop-item__check svg {
+  width: 18px;
+  height: 18px;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.3s ease 0.05s;
+}
+
+.shop-item__check:hover {
+  transform: scale(1.08);
+}
+
+.shop-item__check:focus-visible {
+  outline: 3px solid var(--blue-light);
+  outline-offset: 2px;
+}
+
+.shop-item.is-done .shop-item__check {
+  background: var(--card-color);
+  border-color: var(--card-color);
+  animation: check-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.shop-item.is-done .shop-item__check svg {
+  stroke-dashoffset: 0;
+}
+
+@keyframes check-pop {
+  40% {
+    transform: scale(1.25);
+  }
+}

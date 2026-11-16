@@ -1,0 +1,141 @@
+.share {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  justify-self: center;
+  padding: clamp(28px, 4vw, 44px) clamp(22px, 3.4vw, 38px);
+  border-radius: 36px;
+  background: var(--green);
+  box-shadow: 0 14px 28px rgba(50, 46, 46, 0.16);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+.share:focus-visible {
+  box-shadow: 0 0 0 4px var(--blue-light), 0 14px 28px rgba(50, 46, 46, 0.16);
+}
+
+.share.is-ideal {
+  transform: translateY(-4px);
+}
+
+.share__card {
+  padding: 20px 22px 22px;
+  border-radius: 24px;
+  background: #f7f7f7;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', var(--font-body);
+}
+
+.share__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+  font-weight: 700;
+}
+
+.share__text {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #222;
+}
+
+.share__value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.share__percent {
+  min-width: 3.2ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 5.6vw, 4.3rem);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.share__caption {
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.share__bar {
+  position: relative;
+  height: 16px;
+  margin-top: 4px;
+  border-radius: 99px;
+  background: #e5e5ea;
+}
+
+.share__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 99px;
+  transition: background-color 0.4s ease;
+}
+
+.share__ideal {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: #6b6b70;
+}
+
+.share__ideal-label {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  transition: font-weight 0.2s ease;
+}
+
+.share.is-ideal .share__ideal-label {
+  font-weight: 700;
+}
+
+.share__legend {
+  display: flex;
+  gap: 22px;
+  margin-top: 30px;
+  font-size: 0.88rem;
+}
+
+.share__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.share__legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: background-color 0.4s ease;
+}
+
+.share__legend .share__legend-rest {
+  background: #e5e5ea;
+}
+
+.share__hint {
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (hover: none) {
+  .share__hint {
+    display: none;
+  }
+}

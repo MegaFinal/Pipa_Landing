@@ -1,0 +1,140 @@
+/* Alan Sans: a mesma fonte do app (SIL Open Font License 1.1) */
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('../assets/fonts/AlanSans-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+:root {
+  /* Paleta do Pipa */
+  --orange: #e75e3d;
+  --yellow: #e1ae36;
+  --blue: #476aa0;
+  --blue-light: #7ea9e1;
+  --magenta: #a9529a;
+  --green: #869245;
+  --green-light: #bdc661;
+  --beige: #f4ebdd;
+  --cream: #f6f5ea;
+  --ink: #322e2e;
+  --white: #ffffff;
+
+  /* Céu */
+  --night: #625182;
+  --night-low: #8a7aa3;
+  --sky: #edf4fb;
+
+  --font-display: 'Alan Sans', 'Figtree', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-pill: 999px;
+  --radius-card: 32px;
+  --shadow-card: 0 12px 32px rgba(50, 46, 46, 0.18);
+
+  --page-padding: clamp(20px, 4.5vw, 64px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--beige);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+p {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Botões em pílula usados na corrida e na landing */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0.75em 1.6em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pill-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(50, 46, 46, 0.2);
+}
+
+.pill-button:active {
+  transform: translateY(0);
+}
+
+.pill-button:focus-visible {
+  outline: 3px solid var(--blue-light);
+  outline-offset: 3px;
+}
+
+.pill-button--dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.pill-button--light {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

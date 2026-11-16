@@ -1,0 +1,188 @@
+/* Posições tiradas do protótipo (card 1122 × 1087) */
+.ranking {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1122 / 1087;
+  justify-self: center;
+  border-radius: 4.5cqw;
+  overflow: hidden;
+  background: #edf2fa;
+  box-shadow: 0 14px 28px rgba(50, 46, 46, 0.16);
+  container-type: inline-size;
+}
+
+.ranking__cloud {
+  position: absolute;
+  height: auto;
+}
+
+.ranking__cloud--1 { left: 13%; top: -4%; width: 36%; }
+.ranking__cloud--2 { left: 66%; top: -1%; width: 38%; }
+.ranking__cloud--3 { left: 55%; top: 10%; width: 20%; }
+.ranking__cloud--4 { left: 64%; top: 26%; width: 42%; }
+.ranking__cloud--5 { left: 32%; top: 37%; width: 19%; }
+.ranking__cloud--6 { left: -4%; top: 41%; width: 28%; }
+.ranking__cloud--7 { left: 2%; top: 62%; width: 40%; }
+
+/* animação quadro a quadro: o JS troca o quadro, sem transição entre eles */
+.ranking__kites {
+  position: absolute;
+  left: 8.6%;
+  top: 16.6%;
+  width: 47.8%;
+  aspect-ratio: 370 / 436;
+  background-repeat: no-repeat;
+  background-size: 1600% 100%;
+  transition: none;
+}
+
+/* trilha de níveis */
+.ranking__levels {
+  position: absolute;
+  left: 53.2%;
+  top: 6.2%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13.4cqw;
+}
+
+.ranking__levels::before {
+  content: '';
+  position: absolute;
+  left: 1.6cqw;
+  top: 2cqw;
+  bottom: 2cqw;
+  border-left: 0.25cqw dashed #9a9aa2;
+}
+
+.ranking__levels li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.8cqw;
+  height: 3.2cqw;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.2cqw;
+  color: #707076;
+  white-space: nowrap;
+}
+
+.ranking__levels li.is-current {
+  font-size: 2.9cqw;
+  color: var(--ink);
+}
+
+.ranking__dot {
+  flex: none;
+  width: 3.2cqw;
+  height: 3.2cqw;
+  border-radius: 50%;
+  border: 0.3cqw solid var(--ink);
+  background: var(--white);
+}
+
+.is-current .ranking__dot {
+  background: var(--ink);
+}
+
+.ranking__you {
+  margin-left: 0.6cqw;
+  padding: 0.35em 0.8em;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 1.6cqw;
+}
+
+/* passes livres */
+.pass {
+  position: absolute;
+  width: 21.9%;
+  aspect-ratio: 230 / 346;
+  padding: 2.4cqw 1.6cqw 0;
+  border: 0;
+  background: none;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0.6cqw 1cqw rgba(50, 46, 46, 0.18));
+  transition: transform 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.pass__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.pass--sheet {
+  left: 63.6%;
+  top: 75%;
+  transform: translate(-50%, -50%) rotate(-14.5deg);
+  z-index: 1;
+}
+
+.pass--dishes {
+  left: 79.9%;
+  top: 69.7%;
+  transform: translate(-50%, -50%) rotate(10.5deg);
+  z-index: 2;
+}
+
+.pass.is-front {
+  z-index: 3;
+}
+
+.ranking:hover .pass--sheet,
+.ranking:focus-within .pass--sheet {
+  transform: translate(-58%, -54%) rotate(-18deg);
+}
+
+.ranking:hover .pass--dishes,
+.ranking:focus-within .pass--dishes {
+  transform: translate(-44%, -54%) rotate(13deg);
+}
+
+.pass:focus-visible {
+  outline: none;
+  filter: drop-shadow(0 0 0.5cqw var(--blue));
+}
+
+.pass__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.4cqw;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.pass__icon {
+  width: 13cqw;
+  height: 11cqw;
+  object-fit: contain;
+  margin-top: 1.2cqw;
+}
+
+.pass__stub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 76%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8cqw;
+  line-height: 1.3;
+}
+
+.pass__stub strong {
+  font-weight: 600;
+}

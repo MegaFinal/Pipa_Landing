@@ -1,0 +1,189 @@
+/* medidas do protótipo (varal de 800 × 738) */
+.varal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 800 / 738;
+  justify-self: center;
+  container-type: inline-size;
+}
+
+.varal__board {
+  position: absolute;
+  left: 5.6%;
+  right: 8%;
+  top: 12%;
+  bottom: 7%;
+  border-radius: 5cqw;
+  background: #f3e2b6;
+  box-shadow: 0 2cqw 4cqw rgba(50, 46, 46, 0.1);
+}
+
+.varal__ropes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.varal__tiles {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.varal__slot {
+  position: absolute;
+  width: 13cqw;
+  transform: translate(-50%, -2.6cqw);
+}
+
+.varal-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform: rotate(var(--tilt));
+  transform-origin: 50% 2.6cqw;
+}
+
+/* balança presa no prendedor, como peça no varal */
+.varal-tile:hover,
+.varal-tile:focus-visible {
+  animation: tile-swing 1.1s ease-in-out;
+  outline: none;
+}
+
+@keyframes tile-swing {
+  0% { transform: rotate(var(--tilt)); }
+  20% { transform: rotate(calc(var(--tilt) + 14deg)); }
+  45% { transform: rotate(calc(var(--tilt) - 10deg)); }
+  65% { transform: rotate(calc(var(--tilt) + 6deg)); }
+  82% { transform: rotate(calc(var(--tilt) - 3deg)); }
+  100% { transform: rotate(var(--tilt)); }
+}
+
+.varal-tile__pin {
+  position: relative;
+  z-index: 2;
+  width: 2.8cqw;
+  height: 7.4cqw;
+  margin-bottom: -4.6cqw;
+  border-radius: 0.9cqw;
+  background: var(--pin-color);
+}
+
+.varal-tile__body {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 100 / 118;
+  border-radius: 3.6cqw;
+  background: var(--tile-color);
+  box-shadow: 0 0.6cqw 1.2cqw rgba(50, 46, 46, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.varal-tile__body img {
+  width: 76%;
+  height: 68%;
+  object-fit: contain;
+}
+
+/* espaço vazio: a peça clarinha do protótipo, esperando a tarefa nova */
+.varal-tile--empty {
+  pointer-events: none;
+  --pin-color: #f0d27e;
+}
+
+.varal-tile--empty .varal-tile__body {
+  background: #f6e7bd;
+  box-shadow: 0 0.6cqw 1.2cqw rgba(50, 46, 46, 0.12);
+}
+
+.varal-tile:focus-visible .varal-tile__body {
+  box-shadow: 0 0 0 0.5cqw var(--blue-light);
+}
+
+.varal-tile.is-taken .varal-tile__body {
+  transform: translateY(1cqw) scale(0.94);
+  opacity: 0.55;
+}
+
+.varal-tile.is-just-hung {
+  animation: tile-hang 0.7s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+@keyframes tile-hang {
+  from {
+    transform: translate(4cqw, -18cqw) rotate(-24deg);
+  }
+}
+
+/* tarefa nova pairando acima do varal, como no protótipo */
+.varal__new {
+  position: absolute;
+  top: 6%;
+  width: 13cqw;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform: translateX(-50%) rotate(-24deg);
+  animation: new-task-float 2.6s ease-in-out infinite;
+}
+
+.varal__new:hover,
+.varal__new:focus-visible {
+  outline: none;
+  animation-play-state: paused;
+}
+
+.varal__new:focus-visible .varal-tile__body {
+  box-shadow: 0 0 0 0.5cqw var(--blue-light);
+}
+
+@keyframes new-task-float {
+  50% {
+    transform: translate(-50%, -1.5cqw) rotate(-20deg);
+  }
+}
+
+.varal-tile__points {
+  position: absolute;
+  top: -4cqw;
+  left: 50%;
+  padding: 0.3em 0.7em;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.4cqw;
+  white-space: nowrap;
+  transform: translateX(-50%) rotate(calc(var(--tilt) * -1));
+  animation: points-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+
+.is-just-hung:not(.is-taken) .varal-tile__points {
+  background: var(--green);
+}
+
+@keyframes points-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 2cqw) rotate(calc(var(--tilt) * -1)) scale(0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .varal__new {
+    animation: none;
+  }
+}
