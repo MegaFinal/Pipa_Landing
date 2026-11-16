@@ -67,7 +67,7 @@ export default function WeekChart() {
               onBlur={() => setFocus(null)}
               onClick={() => setFocus((current) => (current === person.id ? null : person.id))}
             >
-              <i style={{ background: person.color }} className={person.id === 'joao' ? 'is-outline' : ''} />
+              <i style={{ background: person.color }} />
               {person.name}
             </button>
           </li>
