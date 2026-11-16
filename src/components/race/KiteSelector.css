@@ -1,9 +1,12 @@
 .kite-selector {
   position: absolute;
   left: 50%;
-  top: clamp(110px, 14.5vh, 180px);
-  transform: translateX(-50%);
-  width: min(82vw, 1100px);
+  /* centralizado no espaço abaixo do logo */
+  top: calc(50% + clamp(36px, 6vh, 60px));
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 200px);
+  overflow-y: auto;
+  width: min(76vw, 1040px);
   padding: clamp(20px, 3vw, 40px) clamp(16px, 3vw, 40px) clamp(16px, 2vw, 28px);
   border-radius: var(--radius-card);
   background: rgba(244, 242, 248, 0.92);
@@ -22,14 +25,14 @@
 @keyframes selector-in {
   from {
     opacity: 0;
-    transform: translate(-50%, 24px) scale(0.96);
+    transform: translate(-50%, calc(-50% + 24px)) scale(0.96);
   }
 }
 
 @keyframes selector-out {
   to {
     opacity: 0;
-    transform: translate(-50%, -24px) scale(0.96);
+    transform: translate(-50%, calc(-50% - 24px)) scale(0.96);
   }
 }
 
@@ -124,6 +127,11 @@
 }
 
 @media (max-width: 640px) {
+  .kite-selector {
+    width: 88vw;
+    max-height: calc(100% - 140px);
+  }
+
   .kite-selector__list {
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
