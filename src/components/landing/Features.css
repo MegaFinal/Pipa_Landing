@@ -86,8 +86,9 @@
   transition-delay: 0.12s;
 }
 
-.feature__image:hover {
-  transform: translateY(-4px) rotate(-0.6deg);
+.feature__image--interactive {
+  display: grid;
+  filter: none;
 }
 
 @media (max-width: 860px) {
