@@ -21,7 +21,8 @@ const WEEK = [
   { day: 'Dom', blocks: [['joao', 36], ['bia', 12], ['voce', 70]] },
 ]
 
-const MAX = Math.max(...WEEK.map((d) => d.blocks.reduce((sum, [, v]) => sum + v, 0) + (d.blocks.length - 1) * 8))
+const totalOf = (column) => column.blocks.reduce((sum, [, minutes]) => sum + minutes, 0)
+const MAX = Math.max(...WEEK.map(totalOf))
 const colorOf = (id) => PEOPLE.find((p) => p.id === id).color
 
 /**
@@ -39,12 +40,12 @@ export default function WeekChart() {
           {WEEK.map((column, c) => (
             <div key={column.day} className="week__column" style={{ '--delay': `${c * 70}ms` }}>
               <span className="week__day">{column.day}</span>
-              <div className="week__stack">
+              <div className="week__stack" style={{ height: `${(totalOf(column) / MAX) * 86}%` }}>
                 {column.blocks.map(([person, minutes], b) => (
                   <span
                     key={b}
                     className={`week__block${focus === person ? ' is-focused' : ''}`}
-                    style={{ height: `${(minutes / MAX) * 100}%`, background: colorOf(person) }}
+                    style={{ flexGrow: minutes, background: colorOf(person) }}
                     onMouseEnter={() => setFocus(person)}
                     onMouseLeave={() => setFocus(null)}
                   />
