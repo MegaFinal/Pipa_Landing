@@ -63,7 +63,14 @@
 
 .race-kite {
   position: absolute;
+  width: min(calc(var(--kite-width) * 1vw), calc(var(--kite-width) * 14px));
   will-change: transform, left, top;
+}
+
+@media (max-width: 700px) {
+  .race-kite {
+    width: calc(var(--kite-width) * 1.75vw);
+  }
 }
 
 .race-kite__image {
@@ -295,6 +302,6 @@
 
 @media (max-width: 640px) {
   .race-result__heading {
-    top: 18%;
+    top: 30%;
   }
 }

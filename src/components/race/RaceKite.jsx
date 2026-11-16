@@ -13,7 +13,7 @@ export default function RaceKite({ kite, state, isPlayer }) {
       style={{
         left: `${x}vw`,
         top: `${y}%`,
-        width: `clamp(${kite.width * 3.2}px, ${kite.width}vw, ${kite.width * 14}px)`,
+        '--kite-width': kite.width,
         opacity,
         transform: `translate(-${kite.anchor.x * 100}%, -${kite.anchor.y * 100}%)`,
       }}
