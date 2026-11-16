@@ -32,9 +32,9 @@
 /* animação quadro a quadro: 16 quadros, vai e volta (autoreverses) a 12 fps */
 .ranking__kites {
   position: absolute;
-  left: 4%;
-  top: 14%;
-  width: 52%;
+  left: 9%;
+  top: 21%;
+  width: 46%;
   aspect-ratio: 370 / 436;
   background-repeat: no-repeat;
   background-size: 1600% 100%;
@@ -57,7 +57,7 @@
 /* trilha de níveis */
 .ranking__levels {
   position: absolute;
-  left: 53%;
+  left: 52%;
   top: 6.5%;
   margin: 0;
   padding: 0;
@@ -83,12 +83,13 @@
   gap: 2.4cqw;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 3.4cqw;
+  font-size: 3.2cqw;
   color: #6e6e74;
+  white-space: nowrap;
 }
 
 .ranking__levels li.is-current {
-  font-size: 4.6cqw;
+  font-size: 4.2cqw;
   font-weight: 700;
   color: var(--ink);
 }
@@ -125,7 +126,7 @@
 .ranking__passes {
   position: absolute;
   left: 46%;
-  top: 48%;
+  top: 57%;
   width: 46%;
   height: 44%;
 }
@@ -133,8 +134,8 @@
 .pass {
   position: absolute;
   top: 0;
-  width: 54%;
-  aspect-ratio: 230 / 340;
+  width: 50%;
+  aspect-ratio: 230 / 330;
   padding: 7% 8% 0;
   border: 0;
   background: var(--pass-color);
@@ -192,14 +193,14 @@
 .pass__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 4.2cqw;
+  font-size: 3.5cqw;
   line-height: 1.05;
   text-align: center;
 }
 
 .pass__icon {
-  width: 62%;
-  margin-top: 7%;
+  width: 58%;
+  margin-top: 6%;
 }
 
 .pass__stub {
@@ -213,8 +214,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2.4cqw;
-  line-height: 1.3;
+  font-size: 2.1cqw;
+  line-height: 1.25;
 }
 
 .pass__stub strong {
