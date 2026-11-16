@@ -86,7 +86,7 @@ export default function HouseShare() {
         </div>
       </div>
       <span className="share__hint" aria-hidden="true">
-        {reached ? 'é isso aí 🎉' : 'passe o mouse'}
+        {reached ? 'divisão ideal' : 'passe o mouse'}
       </span>
     </div>
   )
