@@ -3,7 +3,9 @@
   width: 100%;
   max-width: 560px;
   justify-self: center;
-  padding: clamp(32px, 5vw, 56px) clamp(24px, 9vw, 92px) clamp(36px, 5vw, 60px);
+  /* proporções do protótipo: a pilha ocupa ~57% da largura */
+  padding: 9% 21% 6%;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', var(--font-body);
   border-radius: 36px;
   background: var(--magenta);
   box-shadow: 0 14px 28px rgba(50, 46, 46, 0.16);
@@ -11,8 +13,8 @@
 
 .shop__sticker {
   position: absolute;
-  top: clamp(36px, 5.6vw, 64px);
-  right: clamp(-18px, -1vw, -6px);
+  top: 13%;
+  right: 6%;
   z-index: 20;
   padding: 0.5em 1em;
   border-radius: var(--radius-pill);
@@ -20,7 +22,7 @@
   color: var(--white);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
   white-space: nowrap;
   box-shadow: 0 6px 14px rgba(50, 46, 46, 0.2);
   cursor: default;
@@ -73,15 +75,16 @@
 }
 
 .shop-card__icon {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
 }
 
 .shop-card__title {
-  font-family: var(--font-display);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', var(--font-body);
   font-weight: 700;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  letter-spacing: -0.01em;
 }
 
 .shop-card__count {
@@ -112,8 +115,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
-  border-bottom: 2px dotted rgba(140, 140, 150, 0.45);
+  padding: 14px 0;
+  border-bottom: 1.5px dotted rgba(140, 140, 150, 0.4);
 }
 
 .shop-item:first-child {
@@ -126,8 +129,8 @@
 }
 
 .shop-item__avatar {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   align-self: flex-start;
   margin-top: 2px;
@@ -142,16 +145,16 @@
 
 .shop-item__name {
   font-weight: 600;
-  font-size: 1.02rem;
-  color: #111;
+  font-size: 1rem;
+  color: #000;
   background: linear-gradient(currentColor, currentColor) no-repeat 0 55% / 0 2px;
   transition: background-size 0.35s ease, color 0.3s ease;
   width: fit-content;
 }
 
 .shop-item__amount {
-  font-size: 0.92rem;
-  color: #333;
+  font-size: 0.95rem;
+  color: #1c1c1e;
 }
 
 .shop-item.is-done .shop-item__name {
@@ -164,8 +167,9 @@
 }
 
 .shop-item__check {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
+  align-self: flex-start;
   padding: 0;
   border: 2px solid #1c1c1e;
   border-radius: 50%;
