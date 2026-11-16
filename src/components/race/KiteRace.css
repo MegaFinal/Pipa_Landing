@@ -194,8 +194,14 @@
   outline: none;
 }
 
-.kite-race.is-racing .kite-race__skip {
-  mix-blend-mode: normal;
+.kite-race__skip.is-day {
+  background: rgba(71, 106, 160, 0.12);
+  color: var(--blue);
+}
+
+.kite-race__skip.is-day:hover,
+.kite-race__skip.is-day:focus-visible {
+  background: rgba(71, 106, 160, 0.22);
 }
 
 /* ---------- Resultado ---------- */

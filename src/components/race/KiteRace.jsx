@@ -65,7 +65,7 @@ export default function KiteRace({ phase, plan, playerId, onSelect, onSkip, onRe
 
             <p className={`kite-race__hint${progress > 0.02 ? ' is-hidden' : ''}`}>arraste para começar</p>
 
-            <button type="button" className="kite-race__skip" onClick={onSkip}>
+            <button type="button" className={`kite-race__skip${isNight ? '' : ' is-day'}`} onClick={onSkip}>
               pular corrida
             </button>
 
