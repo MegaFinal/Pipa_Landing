@@ -1,6 +1,7 @@
 import Hero from './Hero.jsx'
 import Features from './Features.jsx'
-import Closing from './Closing.jsx'
+import Harvii from './Harvii.jsx'
+import Footer from './Footer.jsx'
 
 /** Landing tradicional, exibida depois da corrida ou direto ao pular. */
 export default function LandingPage({ showLogo = true }) {
@@ -8,7 +9,8 @@ export default function LandingPage({ showLogo = true }) {
     <main>
       <Hero showLogo={showLogo} />
       <Features />
-      <Closing />
+      <Harvii />
+      <Footer />
     </main>
   )
 }
