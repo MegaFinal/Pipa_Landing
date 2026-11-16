@@ -1,0 +1,103 @@
+.sky-world {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 600%;
+  will-change: transform;
+  background: linear-gradient(
+    to bottom,
+    #625182 0%,
+    #6d5c8c 8%,
+    #8a7aa3 14%,
+    #b1a6c4 19%,
+    #d9d6ea 25%,
+    #edf4fb 31%,
+    #edf4fb 100%
+  );
+}
+
+.sky-world > * {
+  position: absolute;
+}
+
+.sky-world__sun {
+  left: 48%;
+  top: -3%;
+  width: 32vw;
+  max-width: 560px;
+  min-width: 200px;
+  animation: sun-spin 60s linear infinite;
+}
+
+@keyframes sun-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sky-world__star {
+  height: auto;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.sky-world__rocket {
+  left: 5%;
+  top: calc(0.62 / 6 * 100%);
+  width: 26vw;
+  min-width: 160px;
+  animation: rocket-float 5s ease-in-out infinite;
+}
+
+@keyframes rocket-float {
+  50% {
+    transform: translate(1.5vw, -2vh) rotate(-3deg);
+  }
+}
+
+.sky-world__cloud {
+  height: auto;
+}
+
+.sky-world__airplane {
+  left: 56%;
+  top: calc(1.4 / 6 * 100%);
+  width: 26vw;
+  min-width: 160px;
+  animation: airplane-fly 7s ease-in-out infinite;
+}
+
+@keyframes airplane-fly {
+  50% {
+    transform: translate(-3vw, 1.5vh);
+  }
+}
+
+.sky-world__hills {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(0.62 / 6 * 100%);
+}
+
+/* faixa quadriculada da linha de chegada */
+.sky-world__finish {
+  left: 3.3%;
+  right: 3.3%;
+  top: calc(5.67 / 6 * 100%);
+  height: calc(0.125 / 6 * 100%);
+  border-radius: 28px;
+  background-color: #ffffff;
+  background-image: conic-gradient(#322e2e 25%, transparent 0 50%, #322e2e 0 75%, transparent 0);
+  background-size: 52px 52px;
+  background-size: calc(100vh * 0.125 / 3) calc(100vh * 0.125 / 3);
+}
