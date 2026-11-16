@@ -10,7 +10,13 @@ export default function Hero({ showLogo }) {
 
   return (
     <section id="conhecer" ref={ref} className={`hero${visible ? ' is-visible' : ''}`}>
-      {showLogo && <Logo className="hero__logo" />}
+      {showLogo ? (
+        <Logo className="hero__logo" />
+      ) : (
+        <svg className="hero__ground" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 0 H1440 V10 C1100 120 380 120 0 40 Z" fill="var(--green-light)" />
+        </svg>
+      )}
 
       <div className="hero__text">
         <h1 className="hero__title">Lembrar também é trabalho</h1>
