@@ -1,12 +1,13 @@
+/* Posições tiradas do protótipo (card 1122 × 1087) */
 .ranking {
   position: relative;
   width: 100%;
   max-width: 560px;
-  aspect-ratio: 1120 / 1090;
+  aspect-ratio: 1122 / 1087;
   justify-self: center;
-  border-radius: 36px;
+  border-radius: 4.5cqw;
   overflow: hidden;
-  background: linear-gradient(180deg, #e9eef8 0%, #edf4fb 100%);
+  background: #edf2fa;
   box-shadow: 0 14px 28px rgba(50, 46, 46, 0.16);
   container-type: inline-size;
 }
@@ -14,57 +15,39 @@
 .ranking__cloud {
   position: absolute;
   height: auto;
-  animation: ranking-drift 14s ease-in-out infinite alternate;
 }
 
-.ranking__cloud--1 { left: 4%; top: -6%; width: 46%; }
-.ranking__cloud--2 { left: 66%; top: 1%; width: 40%; animation-delay: -4s; }
-.ranking__cloud--3 { left: 64%; top: 32%; width: 44%; animation-delay: -8s; }
-.ranking__cloud--4 { left: -14%; top: 44%; width: 34%; animation-delay: -2s; }
-.ranking__cloud--5 { left: 2%; top: 66%; width: 42%; animation-delay: -6s; }
+.ranking__cloud--1 { left: 13%; top: -4%; width: 36%; }
+.ranking__cloud--2 { left: 66%; top: -1%; width: 38%; }
+.ranking__cloud--3 { left: 55%; top: 10%; width: 20%; }
+.ranking__cloud--4 { left: 64%; top: 26%; width: 42%; }
+.ranking__cloud--5 { left: 32%; top: 37%; width: 19%; }
+.ranking__cloud--6 { left: -4%; top: 41%; width: 28%; }
+.ranking__cloud--7 { left: 2%; top: 62%; width: 40%; }
 
-@keyframes ranking-drift {
-  to {
-    transform: translateX(5%);
-  }
-}
-
-/* animação quadro a quadro: 16 quadros, vai e volta (autoreverses) a 12 fps */
+/* animação quadro a quadro: o JS troca o quadro, sem transição entre eles */
 .ranking__kites {
   position: absolute;
-  left: 9%;
-  top: 21%;
-  width: 46%;
+  left: 8.6%;
+  top: 16.6%;
+  width: 47.8%;
   aspect-ratio: 370 / 436;
   background-repeat: no-repeat;
   background-size: 1600% 100%;
-  background-position: 0 0;
-  animation: kites-play 1.25s steps(15, jump-none) infinite alternate;
-}
-
-@keyframes kites-play {
-  to {
-    background-position: 100% 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ranking__kites {
-    animation: none;
-  }
+  transition: none;
 }
 
 /* trilha de níveis */
 .ranking__levels {
   position: absolute;
-  left: 52%;
-  top: 6.5%;
+  left: 53.2%;
+  top: 6.2%;
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 7.2cqw;
+  gap: 13.4cqw;
 }
 
 .ranking__levels::before {
@@ -73,97 +56,84 @@
   left: 1.6cqw;
   top: 2cqw;
   bottom: 2cqw;
-  border-left: 2px dashed #9a9aa2;
+  border-left: 0.25cqw dashed #9a9aa2;
 }
 
 .ranking__levels li {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 2.4cqw;
+  gap: 1.8cqw;
+  height: 3.2cqw;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 3.2cqw;
-  color: #6e6e74;
+  font-size: 2.2cqw;
+  color: #707076;
   white-space: nowrap;
 }
 
 .ranking__levels li.is-current {
-  font-size: 4.2cqw;
-  font-weight: 700;
+  font-size: 2.9cqw;
   color: var(--ink);
 }
 
 .ranking__dot {
+  flex: none;
   width: 3.2cqw;
   height: 3.2cqw;
   border-radius: 50%;
-  border: 2px solid var(--ink);
+  border: 0.3cqw solid var(--ink);
   background: var(--white);
 }
 
 .is-current .ranking__dot {
   background: var(--ink);
-  box-shadow: 0 0 0 0 rgba(50, 46, 46, 0.4);
-  animation: level-pulse 2s ease-out infinite;
-}
-
-@keyframes level-pulse {
-  70% {
-    box-shadow: 0 0 0 2.4cqw rgba(50, 46, 46, 0);
-  }
 }
 
 .ranking__you {
-  padding: 0.3em 0.8em;
+  margin-left: 0.6cqw;
+  padding: 0.35em 0.8em;
   border-radius: 99px;
   background: var(--ink);
   color: var(--white);
-  font-size: 2.6cqw;
+  font-size: 1.6cqw;
 }
 
 /* passes livres */
-.ranking__passes {
-  position: absolute;
-  left: 46%;
-  top: 57%;
-  width: 46%;
-  height: 44%;
-}
-
 .pass {
   position: absolute;
-  top: 0;
-  width: 50%;
-  aspect-ratio: 230 / 330;
-  padding: 7% 8% 0;
+  width: 21.9%;
+  aspect-ratio: 230 / 346;
+  padding: 2.4cqw 1.6cqw 0;
   border: 0;
-  background: var(--pass-color);
+  background: none;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* recortes laterais do ingresso */
-  -webkit-mask: radial-gradient(circle at 0 70%, transparent 5.5%, #000 5.8%) left / 51% 100% no-repeat,
-    radial-gradient(circle at 100% 70%, transparent 5.5%, #000 5.8%) right / 51% 100% no-repeat;
-  mask: radial-gradient(circle at 0 70%, transparent 5.5%, #000 5.8%) left / 51% 100% no-repeat,
-    radial-gradient(circle at 100% 70%, transparent 5.5%, #000 5.8%) right / 51% 100% no-repeat;
-  filter: drop-shadow(0 6px 10px rgba(50, 46, 46, 0.2));
-  transition: transform 0.45s cubic-bezier(0.3, 1.4, 0.5, 1), z-index 0s 0.2s;
-  border-radius: 10px;
+  filter: drop-shadow(0 0.6cqw 1cqw rgba(50, 46, 46, 0.18));
+  transition: transform 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.pass__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .pass--sheet {
-  left: 4%;
-  top: 12%;
-  transform: rotate(-12deg);
+  left: 63.6%;
+  top: 75%;
+  transform: translate(-50%, -50%) rotate(-14.5deg);
   z-index: 1;
 }
 
 .pass--dishes {
-  left: 40%;
-  top: 0;
-  transform: rotate(7deg);
+  left: 79.9%;
+  top: 69.7%;
+  transform: translate(-50%, -50%) rotate(10.5deg);
   z-index: 2;
 }
 
@@ -172,50 +142,45 @@
 }
 
 .ranking:hover .pass--sheet,
-.ranking__passes:focus-within .pass--sheet {
-  transform: translate(-12%, -6%) rotate(-18deg);
+.ranking:focus-within .pass--sheet {
+  transform: translate(-58%, -54%) rotate(-18deg);
 }
 
 .ranking:hover .pass--dishes,
-.ranking__passes:focus-within .pass--dishes {
-  transform: translate(12%, -4%) rotate(12deg);
-}
-
-.pass:hover {
-  filter: drop-shadow(0 10px 16px rgba(50, 46, 46, 0.28));
+.ranking:focus-within .pass--dishes {
+  transform: translate(-44%, -54%) rotate(13deg);
 }
 
 .pass:focus-visible {
   outline: none;
-  filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 4px var(--blue));
+  filter: drop-shadow(0 0 0.5cqw var(--blue));
 }
 
 .pass__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 3.5cqw;
+  font-size: 3.4cqw;
   line-height: 1.05;
   text-align: center;
 }
 
 .pass__icon {
-  width: 58%;
-  margin-top: 6%;
+  width: 13cqw;
+  height: 11cqw;
+  object-fit: contain;
+  margin-top: 1.2cqw;
 }
 
 .pass__stub {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 27%;
-  padding-top: 5%;
-  border-top: 2px dashed rgba(255, 255, 255, 0.85);
+  top: 76%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2.1cqw;
-  line-height: 1.25;
+  font-size: 1.8cqw;
+  line-height: 1.3;
 }
 
 .pass__stub strong {
