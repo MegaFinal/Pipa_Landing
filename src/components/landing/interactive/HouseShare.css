@@ -51,7 +51,7 @@
 .share__percent {
   min-width: 3.2ch;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(3rem, 5.6vw, 4.3rem);
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;

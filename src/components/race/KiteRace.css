@@ -106,7 +106,7 @@
   background: var(--orange);
   color: var(--white);
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(0.85rem, 1.35vw, 1.25rem);
 }
 
@@ -161,7 +161,7 @@
   background: rgba(98, 81, 130, 0.85);
   color: var(--white);
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1rem, 1.8vw, 1.7rem);
   white-space: nowrap;
   transition: opacity 0.3s ease, transform 0.3s ease;
