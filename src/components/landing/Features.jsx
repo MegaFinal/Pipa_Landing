@@ -23,6 +23,7 @@ const FEATURES = [
     image: varal,
     imageAlt: 'Varal com tarefas da casa penduradas por prendedores',
     imageSide: 'left',
+    flat: true,
   },
   {
     tag: 'Lista de compras',

@@ -78,6 +78,10 @@
   transform: none;
 }
 
+.feature__image--flat {
+  filter: none;
+}
+
 .feature.is-visible .feature__image {
   transition-delay: 0.12s;
 }

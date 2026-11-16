@@ -9,7 +9,7 @@ export default function Hero({ showLogo }) {
   const [ref, visible] = useReveal(0.15)
 
   return (
-    <section id="conhecer" ref={ref} className={`hero${visible ? ' is-visible' : ''}`}>
+    <section id="conhecer" ref={ref} className={`hero${showLogo ? ' hero--with-logo' : ''}${visible ? ' is-visible' : ''}`}>
       {showLogo ? (
         <Logo className="hero__logo" />
       ) : (

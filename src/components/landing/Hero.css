@@ -11,6 +11,10 @@
   color: var(--white);
 }
 
+.hero--with-logo {
+  padding-top: clamp(150px, 16vw, 230px);
+}
+
 .hero__logo {
   position: absolute;
   top: clamp(20px, 4vw, 52px);
@@ -28,7 +32,7 @@
 .hero__title {
   font-weight: 700;
   font-size: clamp(2.6rem, 5.4vw, 5.4rem);
-  max-width: 11ch;
+  max-width: 12ch;
 }
 
 .hero__lead {
