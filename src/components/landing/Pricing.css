@@ -5,7 +5,7 @@
 }
 
 .pricing__title {
-  max-width: 12ch;
+  max-width: 16ch;
   font-size: clamp(2.2rem, 4vw, 3.6rem);
 }
 

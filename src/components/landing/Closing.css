@@ -48,15 +48,15 @@
 }
 
 .closing__kite--left {
-  left: 5%;
-  top: 10%;
-  width: clamp(70px, 9vw, 120px);
+  left: 6%;
+  top: 16%;
+  width: clamp(80px, 10vw, 130px);
   transform-origin: 50% 20%;
 }
 
 .closing__kite--right {
-  right: 4%;
-  top: 6%;
+  right: 5%;
+  top: 9%;
   width: clamp(90px, 13vw, 170px);
   transform-origin: 50% 20%;
   animation-duration: 3.8s;
