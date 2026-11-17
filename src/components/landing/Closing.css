@@ -89,13 +89,19 @@
 .closing.is-visible .closing__content > :nth-child(4) { transition-delay: 0.24s; }
 
 @media (max-width: 640px) {
+  .closing {
+    padding-top: 150px;
+  }
+
   .closing__kite--left {
-    left: 2%;
+    left: 4%;
     top: 4%;
+    width: 58px;
   }
 
   .closing__kite--right {
-    right: 0;
+    right: 4%;
     top: 3%;
+    width: 70px;
   }
 }
